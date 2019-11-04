@@ -40,3 +40,9 @@ def read_csv(input_file):
             loop = False
     df = pd.concat(chunks, ignore_index=True)
     return df
+
+
+def get_filenames(path, format_files, filtered_with=''):
+    filenames = [f for f in listdir(path) if isfile(join(path, f)) and f[-3:]==format_files and f.find(filtered_with)>-1]
+    
+    return filenames
